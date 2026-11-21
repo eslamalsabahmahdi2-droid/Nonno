@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مفاجأة عيد ميلاد نونتي الـ 20 🎀</title>
+
+  <!-- خطوط جوجل العربية (Cairo & Tajawal للنصوص، و Aref Ruqaa للعناوين الرومانسية) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+  <!-- مكتبة Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            cairo: ['Cairo', 'Tajawal', 'sans-serif'],
+            tajawal: ['Tajawal', 'Cairo', 'sans-serif'],
+            ruqaa: ['Aref Ruqaa', 'Cairo', 'serif'],
+          },
+          colors: {
+            pinkbg: '#fff0f6',
+            pinkcream: '#fff9fb',
+            pinksoft: '#ffd6e7',
+            pinkblush: '#ffb8d1',
+            pinkmid: '#ff85a2',
+            pinkdeep: '#e83e8c',
+            rosegold: '#d89b8d',
+            rosegoldlight: '#f7dfd8',
+          },
+          boxShadow: {
+            'pink-glow': '0 10px 35px -5px rgba(232, 62, 140, 0.35)',
+            'soft-card': '0 16px 42px -12px rgba(232, 62, 140, 0.16)',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ============================================================
+       الأساسيات والثيم البينك الناعم
+       ============================================================ */
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Cairo', 'Tajawal', sans-serif;
+      background: linear-gradient(155deg, #fff8fb 0%, #ffe6f1 48%, #fff2f7 100%);
+      color: #5c243d;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* كروت الزجاج الشفاف (Glassmorphism) */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.76);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid rgba(255, 198, 221, 0.82);
+      box-shadow: 0 18px 46px -12px rgba(232, 62, 140, 0.16);
+    }
+
+    .glass-pink {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 214, 231, 0.56));
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1.5px solid rgba(255, 133, 162, 0.38);
+    }
+
+    /* خلفية القلوب واللمعان المتطاير */
+    .floating-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .float-particle {
+      position: absolute;
+      bottom: -45px;
+      opacity: 0;
+      animation: floatUp linear infinite;
+      user-select: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(0.8);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.6;
+      }
+      85% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-115vh) rotate(360deg) scale(1.15);
+        opacity: 0;
+      }
+    }
+
+    /* أنيميشنات الحركة والتوهج */
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 18px rgba(232, 62, 140, 0.32), 0 0 36px rgba(255, 133, 162, 0.18);
+      }
+      50% {
+        box-shadow: 0 0 28px rgba(232, 62, 140, 0.55), 0 0 54px rgba(255, 133, 162, 0.38);
+      }
+    }
+
+    .glow-btn {
+      animation: pulseGlow 2.8s ease-in-out infinite;
+    }
+
+    @keyframes shakeX {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+    }
+
+    .shake-anim {
+      animation: shakeX 0.45s ease-in-out;
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    .bounce-soft {
+      animation: gentleBounce 3.2s ease-in-out infinite;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-slide-up {
+      animation: fadeSlideUp 0.6s ease-out forwards;
+    }
+
+    /* ============================================================
+       مشغّل الأغاني: الأسطوانة الدوارة + الإيكولايزر + شريط التقدم
+       ============================================================ */
+    @keyframes spinRecord {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .vinyl-spin {
+      animation: spinRecord 6.5s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .vinyl-spin.playing {
+      animation-play-state: running;
+    }
+
+    .eq-bar {
+      width: 4px;
+      border-radius: 9999px;
+      background: linear-gradient(to top, #e83e8c, #ff85a2);
+      height: 6px;
+      transition: height 0.2s ease;
+    }
+
+    .eq-playing .eq-bar {
+      animation: eqDance 0.75s ease-in-out infinite alternate;
+    }
+
+    .eq-playing .eq-bar:nth-child(2) { animation-delay: 0.14s; }
+    .eq-playing .eq-bar:nth-child(3) { animation-delay: 0.28s; }
+    .eq-playing .eq-bar:nth-child(4) { animation-delay: 0.1s; }
+    .eq-playing .eq-bar:nth-child(5) { animation-delay: 0.22s; }
+
+    @keyframes eqDance {
+      0% { height: 6px; }
+      100% { height: 24px; }
+    }
+
+    /* تنسيق شريط التقديم والتأخير (Seek Bar) */
+    .pink-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 7px;
+      border-radius: 9999px;
+      background: #ffd6e7;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .pink-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #e83e8c, #ff85a2);
+      border: 2.5px solid #ffffff;
+      box-shadow: 0 3px 10px rgba(232, 62, 140, 0.45);
+      cursor: pointer;
+      transition: transform 0.18s ease;
+    }
+
+    .pink-range::-webkit-slider-thumb:hover {
+      transform: scale(1.18);
+    }
+
+    .pink-range::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #e83e8c, #ff85a2);
+      border: 2.5px solid #ffffff;
+      box-shadow: 0 3px 10px rgba(232, 62, 140, 0.45);
+      cursor: pointer;
+    }
+
+    /* ============================================================
+       ظرف الرسالة ثلاثي الأبعاد (3D Love Envelope)
+       ============================================================ */
+    .envelope-wrapper {
+      perspective: 1000px;
+    }
+
+    .envelope-container {
+      position: relative;
+      width: 100%;
+      max-width: 360px;
+      height: 232px;
+      margin: 0 auto;
+      cursor: pointer;
+      transition: transform 0.35s ease;
+    }
+
+    .envelope-container:hover {
+      transform: translateY(-4px);
+    }
+
+    .envelope-back {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, #ffa3c0, #ff7aa2);
+      border-radius: 20px;
+      box-shadow: 0 18px 36px -8px rgba(232, 62, 140, 0.32);
+    }
+
+    .envelope-letter-peek {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      top: 18px;
+      bottom: 18px;
+      background: #fffdfa;
+      border-radius: 14px;
+      border: 1px solid #ffd6e7;
+      transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .envelope-container.opened .envelope-letter-peek {
+      transform: translateY(-74px);
+    }
+
+    .envelope-front-pocket {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      border-radius: 20px;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .envelope-front-pocket::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #ffbad0 0%, #ff8fb3 100%);
+      clip-path: polygon(0 28%, 50% 62%, 100% 28%, 100% 100%, 0 100%);
+    }
+
+    .envelope-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 134px;
+      background: linear-gradient(180deg, #ff85a2 0%, #ff6b93 100%);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      transform-origin: top center;
+      transition: transform 0.65s ease-in-out, z-index 0.3s;
+      z-index: 4;
+      filter: drop-shadow(0 6px 8px rgba(200, 40, 105, 0.18));
+    }
+
+    .envelope-container.opened .envelope-flap {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+
+    .wax-seal {
+      position: absolute;
+      top: 105px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 54px;
+      height: 54px;
+      border-radius: 9999px;
+      background: radial-gradient(circle at 35% 30%, #ff5c8a, #c9184a);
+      box-shadow: 0 6px 15px rgba(170, 20, 75, 0.42), inset 0 2px 4px rgba(255, 255, 255, 0.45);
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      transition: transform 0.4s ease, opacity 0.35s ease;
+    }
+
+    .envelope-container.opened .wax-seal {
+      transform: translateX(-50%) scale(0.3);
+      opacity: 0;
+    }
+
+    /* ورقة الرسالة المسطرة */
+    .lined-paper {
+      background-color: #fffdfa;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 33px,
+        rgba(255, 182, 206, 0.42) 33px,
+        rgba(255, 182, 206, 0.42) 34px
+      );
+      line-height: 34px;
+    }
+
+    /* ============================================================
+       التورتة التفاعلية والشمع والدخان
+       ============================================================ */
+    .candle-flame {
+      transform-origin: bottom center;
+      animation: flameFlicker 0.34s ease-in-out infinite alternate;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    @keyframes flameFlicker {
+      0% { transform: scale(1) rotate(-3deg); opacity: 0.95; }
+      50% { transform: scale(1.08, 0.96) rotate(2deg); opacity: 1; }
+      100% { transform: scale(0.95, 1.12) rotate(-2deg); opacity: 0.9; }
+    }
+
+    .flame-off {
+      opacity: 0 !important;
+      transform: scale(0) !important;
+      animation: none !important;
+    }
+
+    .smoke-puff {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .smoke-active {
+      animation: smokeRise 1.6s ease-out forwards;
+    }
+
+    @keyframes smokeRise {
+      0% { opacity: 0; transform: translateY(0) scale(0.5); }
+      25% { opacity: 0.78; }
+      100% { opacity: 0; transform: translateY(-48px) translateX(8px) scale(2.1); }
+    }
+
+    /* ============================================================
+       كروت ليه بحبك ثلاثية الأبعاد (3D Flip Cards)
+       ============================================================ */
+    .flip-card {
+      perspective: 1100px;
+      height: 228px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .flip-front {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 214, 231, 0.7));
+      border: 1.5px solid rgba(255, 133, 162, 0.45);
+      box-shadow: 0 12px 30px -8px rgba(232, 62, 140, 0.15);
+    }
+
+    .flip-back {
+      background: linear-gradient(145deg, #ff7aa2, #e83e8c);
+      color: #ffffff;
+      transform: rotateY(180deg);
+      box-shadow: 0 15px 34px -8px rgba(232, 62, 140, 0.38);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+    }
+
+    /* كانفاس الاحتفال بالكونفيتي */
+    #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 60;
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="antialiased selection:bg-pinkmid selection:text-white">
+
+  <!-- كانفاس الكونفيتي والقلوب المتطايرة -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- خلفية القلوب والنجوم اللطيفة -->
+  <div id="floatingBg" class="floating-bg" aria-hidden="true"></div>
+
+  <!-- شريط وضع المعاينة السري (يظهر فقط عند الدخول بكلمة السر test20) -->
+  <div id="creatorPreviewBar" class="hidden fixed top-0 inset-x-0 z-50 bg-pinkdeep/95 text-white text-xs sm:text-sm py-2.5 px-4 shadow-lg backdrop-blur-md">
+    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2 font-bold">
+        <span>✨</span>
+        <span>وضع المعاينة</span>
+        <span class="hidden sm:inline font-normal opacity-90">(الموقع الرسمي مقفول لحد 4 مارس 2027)</span>
+      </div>
+      <button
+        id="backToLockBtn"
+        type="button"
+        class="px-3.5 py-1.5 rounded-full bg-white text-pinkdeep font-extrabold text-xs hover:bg-pinkbg transition cursor-pointer shadow-sm"
+      >
+        رجوع لشاشة القفل 🔒
+      </button>
+    </div>
+  </div>
+
+  <!-- =================================================================
+       1. الشاشة الخارجية (العداد التنازلي + كلمة السر)
+       ================================================================= -->
+  <section id="lockScreen" class="relative z-10 min-h-screen flex items-center justify-center p-4 sm:p-6 transition-opacity duration-700">
+    <div class="glass-card w-full max-w-lg rounded-[34px] p-6 sm:p-9 text-center relative overflow-hidden">
+      <!-- ديكور إضاءة ناعمة في الزوايا -->
+      <div class="absolute -top-12 -right-12 w-36 h-36 bg-pinksoft/70 rounded-full blur-2xl pointer-events-none"></div>
+      <div class="absolute -bottom-12 -left-12 w-44 h-44 bg-rosegoldlight/80 rounded-full blur-2xl pointer-events-none"></div>
+
+      <div class="relative z-10">
+        <!-- أيقونة علوية -->
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-pinksoft to-white border-2 border-pinkmid/40 shadow-soft-card mb-4 bounce-soft">
+          <span class="text-4xl">🎀</span>
+        </div>
+
+        <!-- العنوان الرومانسي -->
+        <h1 class="font-ruqaa text-3xl sm:text-4xl font-bold text-pinkdeep leading-relaxed mb-2">
+          مفاجأة خاصة لأحلى نونتي 🎀
+        </h1>
+        <p class="text-sm sm:text-base text-[#7a3b58] font-semibold mb-6">
+          عيد ميلاد <span class="font-extrabold text-pinkdeep">نهاد</span> الـ 20 قرب.. استعدي يا نونوو ✨
+        </p>
+
+        <!-- شارة الحالة فوق العداد -->
+        <div id="countdownStatusPill" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pinkbg border border-pinkmid/35 text-xs sm:text-sm font-bold text-pinkdeep mb-5">
+          <span class="inline-block w-2 h-2 rounded-full bg-pinkdeep animate-ping"></span>
+          <span>فاضل على أول دقيقة في يوم 4 مارس 2027</span>
+        </div>
+
+        <!-- مربعات العداد التنازلي -->
+        <div class="grid grid-cols-4 gap-2.5 sm:gap-3.5 mb-7" dir="ltr">
+          <div class="glass-pink rounded-2xl py-3.5 px-2 shadow-sm">
+            <div id="cdDays" class="text-2xl sm:text-3xl font-black text-pinkdeep tabular-nums">00</div>
+            <div class="text-xs sm:text-sm font-bold text-[#8a4364] mt-1">أيام</div>
+          </div>
+          <div class="glass-pink rounded-2xl py-3.5 px-2 shadow-sm">
+            <div id="cdHours" class="text-2xl sm:text-3xl font-black text-pinkdeep tabular-nums">00</div>
+            <div class="text-xs sm:text-sm font-bold text-[#8a4364] mt-1">ساعات</div>
+          </div>
+          <div class="glass-pink rounded-2xl py-3.5 px-2 shadow-sm">
+            <div id="cdMinutes" class="text-2xl sm:text-3xl font-black text-pinkdeep tabular-nums">00</div>
+            <div class="text-xs sm:text-sm font-bold text-[#8a4364] mt-1">دقائق</div>
+          </div>
+          <div class="glass-pink rounded-2xl py-3.5 px-2 shadow-sm">
+            <div id="cdSeconds" class="text-2xl sm:text-3xl font-black text-pinkdeep tabular-nums">00</div>
+            <div class="text-xs sm:text-sm font-bold text-[#8a4364] mt-1">ثواني</div>
+          </div>
+        </div>
+
+        <!-- نموذج كلمة السر -->
+        <form id="unlockForm" class="space-y-3.5" novalidate>
+          <input
+            id="passwordInput"
+            type="text"
+            inputmode="text"
+            autocomplete="off"
+            placeholder="اكتبي كلمة السر هنا..."
+            class="w-full px-5 py-4 rounded-2xl bg-white/95 border-2 border-pinksoft focus:border-pinkdeep focus:outline-none text-center text-base sm:text-lg font-bold text-[#5c243d] placeholder:text-[#b87a97] transition shadow-inner"
+          />
+
+          <button
+            id="unlockBtn"
+            type="submit"
+            class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-pinkdeep via-[#f25297] to-pinkmid text-white font-extrabold text-base sm:text-lg glow-btn hover:scale-[1.02] active:scale-[0.98] transition cursor-pointer"
+          >
+            افتحي المفاجأة 🎁
+          </button>
+        </form>
+
+        <!-- صندوق الرسائل التفاعلية (بديل alert) -->
+        <div
+          id="lockFeedback"
+          class="hidden mt-5 p-4 rounded-2xl text-sm sm:text-base font-bold leading-relaxed border transition-all"
+          role="alert"
+        ></div>
+
+        <p class="mt-6 text-xs text-[#9e5c7b] font-semibold">
+          معمول مخصوص عشانك يا نونوو 💗
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       2. محتوى موقع عيد الميلاد الرئيسي (يظهر بعد الفتح)
+       ================================================================= -->
+  <div id="mainWebsite" class="hidden relative z-10 pb-16">
+
+    <!-- شريط التنقل العلوي الثابت -->
+    <header id="stickyNav" class="sticky top-0 z-40 px-3 pt-3 pb-2 transition-all">
+      <nav class="max-w-3xl mx-auto glass-card rounded-full px-2.5 py-2 flex items-center justify-between sm:justify-center gap-1.5 overflow-x-auto no-scrollbar">
+        <a href="#hero" class="shrink-0 px-3.5 py-2 rounded-full text-xs sm:text-sm font-bold text-[#6e2d4c] hover:bg-pinksoft/70 hover:text-pinkdeep transition">الرئيسية 🎀</a>
+        <a href="#music" class="shrink-0 px-3.5 py-2 rounded-full text-xs sm:text-sm font-bold text-[#6e2d4c] hover:bg-pinksoft/70 hover:text-pinkdeep transition">الموسيقى 🎵</a>
+        <a href="#letter" class="shrink-0 px-3.5 py-2 rounded-full text-xs sm:text-sm font-bold text-[#6e2d4c] hover:bg-pinksoft/70 hover:text-pinkdeep transition">الرسالة 💌</a>
+        <a href="#cake" class="shrink-0 px-3.5 py-2 rounded-full text-xs sm:text-sm font-bold text-[#6e2d4c] hover:bg-pinksoft/70 hover:text-pinkdeep transition">التورتة 🎂</a>
+        <a href="#cards" class="shrink-0 px-3.5 py-2 rounded-full text-xs sm:text-sm font-bold text-[#6e2d4c] hover:bg-pinksoft/70 hover:text-pinkdeep transition">الكروت ✨</a>
+        <a href="#quiz" class="shrink-0 px-3.5 py-2 rounded-full text-xs sm:text-sm font-bold text-[#6e2d4c] hover:bg-pinksoft/70 hover:text-pinkdeep transition">الكويز 👑</a>
+      </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 space-y-12 sm:space-y-16 mt-5">
+
+      <!-- =========================================================
+           القسم الأول: الترحيب الرئيسي (Hero Section)
+           ========================================================= -->
+      <section id="hero" class="scroll-mt-28">
+        <div class="glass-card rounded-[34px] p-6 sm:p-11 text-center relative overflow-hidden fade-slide-up">
+          <div class="absolute -top-16 -left-16 w-52 h-52 bg-pinksoft/70 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -bottom-16 -right-16 w-56 h-56 bg-rosegoldlight/80 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="relative z-10">
+            <!-- شارة الـ 20 سنة -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border border-pinkmid/45 text-xs sm:text-sm font-extrabold text-pinkdeep shadow-sm mb-5">
+              <span>20 سنة من الجمال 🎂💗</span>
+            </div>
+
+            <!-- دائرة الرقم 20 المتوهجة -->
+            <div class="flex justify-center mb-5">
+              <div class="relative inline-flex items-center justify-center w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-gradient-to-br from-pinkdeep via-pinkmid to-rosegold text-white shadow-pink-glow bounce-soft">
+                <div class="absolute inset-2 rounded-full border-2 border-dashed border-white/60"></div>
+                <div class="text-center">
+                  <span class="block text-5xl sm:text-6xl font-black leading-none tracking-tight">20</span>
+                  <span class="block text-xs font-bold mt-1 text-pinkbg">4 مارس 2027 🎀</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- العنوان الرئيسي -->
+            <h1 class="font-ruqaa text-3xl sm:text-5xl font-bold text-pinkdeep leading-relaxed mb-4">
+              كل سنة وإنتِ طيبة يا أحلى نونوو في الدنيا
+            </h1>
+
+            <!-- ترحيب دافئ قابل للتعديل لاحقاً -->
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-[#6a2e4b] font-medium leading-loose mb-7">
+              النهارده مش يوم عادي خالص.. النهارده عيد ميلاد أجمل وأرق <span class="font-extrabold text-pinkdeep">نهاد — نونتي</span> في الدنيا!
+              كملتي 20 سنة، ويا رب سنتك الجديدة تكون مليانة ضحك وراحة بال وأحلام بتتحقق واحد ورا التاني.
+              عملتلك المكان الصغير ده عشان تفتكري دايماً إنتي غالية عندي قد إيه 🌷
+            </p>
+
+            <!-- أزرار التفاعل -->
+            <div class="flex flex-wrap items-center justify-center gap-3">
+              <button
+                id="heroConfettiBtn"
+                type="button"
+                class="px-7 py-3.5 rounded-full bg-gradient-to-r from-pinkdeep to-pinkmid text-white font-extrabold text-sm sm:text-base shadow-pink-glow hover:scale-105 active:scale-95 transition cursor-pointer"
+              >
+                احتفال زيادة 🎉✨
+              </button>
+              <a
+                href="#music"
+                class="px-7 py-3.5 rounded-full bg-white/95 border-2 border-pinkmid/45 text-pinkdeep font-extrabold text-sm sm:text-base hover:bg-pinksoft/50 transition"
+              >
+                اسمعي أغانينا 🎵
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           القسم الثاني: مشغّلي الأغاني (Dual Local MP3 Players)
+           ========================================================= -->
+      <section id="music" class="scroll-mt-28">
+        <!--
+          ملاحظة مهمة لتشغيل الأغنيتين عند رفع الموقع:
+          ضع ملفين MP3 في نفس الفولدر مع ملف الموقع بالأسماء دي بالظبط:
+          1) song1.mp3  -> لأغنية "هل عندك شك - كاظم الساهر"
+          2) song2.mp3  -> لأغنية "خليك فاكرني"
+        -->
+        <div class="text-center mb-7">
+          <span class="inline-block px-4 py-1 rounded-full bg-pinksoft/85 text-pinkdeep text-xs sm:text-sm font-bold mb-2.5">
+            أغنيتين من القلب 🎧
+          </span>
+          <h2 class="font-ruqaa text-3xl sm:text-4xl font-bold text-pinkdeep mb-2">
+            موسيقى عشانك 🎵
+          </h2>
+          <p class="text-sm sm:text-base text-[#7e3f5c] font-medium">
+            شغّلي الأغنية اللي تحبيها وإنتي بتتفرجي على المفاجأة 💗
+          </p>
+        </div>
+
+        <!-- عناصر الصوت الفعلية -->
+        <audio id="audio1" src="song1.mp3" preload="metadata"></audio>
+        <audio id="audio2" src="song2.mp3" preload="metadata"></audio>
+
+        <!-- شبكة المشغّلين -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+
+          <!-- ========== المشغّل الأول: أغنية بتحبيها (هل عندك شك) ========== -->
+          <div id="playerCard1" class="glass-card rounded-[30px] p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden transition-all duration-300">
+            <div class="absolute -top-10 -left-10 w-28 h-28 bg-pinksoft/55 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div class="relative z-10">
+              <!-- شارة المشغّل الأول -->
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-pinksoft/90 text-pinkdeep text-xs font-extrabold">
+                  أغنية بتحبيها 💗
+                </span>
+                <!-- موجات الإيكولايزر -->
+                <div id="eq1" class="flex items-end gap-1 h-6">
+                  <span class="eq-bar"></span>
+                  <span class="eq-bar"></span>
+                  <span class="eq-bar"></span>
+                  <span class="eq-bar"></span>
+                  <span class="eq-bar"></span>
+                </div>
+              </div>
+
+              <!-- الأسطوانة + عنوان الأغنية + زر التشغيل -->
+              <div class="flex items-center gap-4 mb-5">
+                <!-- أسطوانة فينيل دوارة -->
+                <div id="vinyl1" class="vinyl-spin shrink-0 w-20 h-20 rounded-full bg-gradient-to-br from-[#3b1527] via-[#702348] to-[#2e101e] p-2 shadow-pink-glow flex items-center justify-center relative border-2 border-rosegoldlight">
+                  <div class="absolute inset-2.5 rounded-full border border-white/15"></div>
+                  <div class="absolute inset-4 rounded-full border border-white/10"></div>
+                  <div class="w-8 h-8 rounded-full bg-gradient-to-br from-pinkmid to-pinkdeep flex items-center justify-center text-white text-xs shadow-inner">
+                    💗
+                  </div>
+                </div>
+
+                <!-- الاسم والمغني -->
+                <div class="flex-1 min-w-0 text-right">
+                  <h3 class="text-xl font-black text-pinkdeep truncate">هل عندك شك</h3>
+                  <p class="text-sm font-bold text-[#8a4566] truncate">كاظم الساهر</p>
+                  <p id="statusText1" class="text-xs font-semibold text-[#a56282] mt-1">جاهزة للتشغيل 🎶</p>
+                </div>
+
+                <!-- زر تشغيل / إيقاف -->
+                <button
+                  id="playBtn1"
+                  type="button"
+                  aria-label="تشغيل أو إيقاف أغنية هل عندك شك"
+                  class="shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-pinkdeep to-pinkmid text-white shadow-pink-glow hover:scale-105 active:scale-95 transition flex items-center justify-center cursor-pointer"
+                >
+                  <!-- أيقونة التشغيل -->
+                  <svg id="playIcon1" class="w-6 h-6 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5.14v14l11-7-11-7z" />
+                  </svg>
+                  <!-- أيقونة الإيقاف -->
+                  <svg id="pauseIcon1" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- شريط التقدم والوقت (LTR لسهولة السحب الطبيعي) -->
+              <div class="space-y-1.5" dir="ltr">
+                <input
+                  id="seekBar1"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="0"
+                  step="0.1"
+                  aria-label="شريط تقدم أغنية هل عندك شك"
+                  class="pink-range"
+                />
+                <div class="flex items-center justify-between text-xs font-bold text-[#8a4566] tabular-nums">
+                  <span id="currentTime1">0:00</span>
+                  <span id="durationTime1">0:00</span>
+                </div>
+              </div>
+
+              <!-- ملاحظة ذكية وزر اختيار ملف MP3 للتجربة (تظهر فقط في وضع المعاينة أو لو الملف غير موجود) -->
+              <div id="fallbackBox1" class="hidden mt-4 pt-3 border-t border-pinksoft/80 text-center">
+                <p id="fallbackMsg1" class="text-[11px] font-bold text-[#9a5576] mb-2">
+                  حط ملف <code class="bg-pinkbg px-1.5 py-0.5 rounded text-pinkdeep" dir="ltr">song1.mp3</code> جنب الموقع، أو جرب ملف دلوقتي:
+                </p>
+                <label class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 border border-pinkmid/50 text-pinkdeep text-xs font-extrabold hover:bg-pinkbg transition cursor-pointer shadow-sm">
+                  <span>📂</span>
+                  <span>جرب ملف MP3 من جهازك</span>
+                  <input id="filePicker1" type="file" accept="audio/*" class="hidden" />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== المشغّل الثاني: أغنية مني ليكي (خليك فاكرني) ========== -->
+          <div id="playerCard2" class="glass-card rounded-[30px] p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden transition-all duration-300">
+            <div class="absolute -top-10 -right-10 w-28 h-28 bg-rosegoldlight/75 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div class="relative z-10">
+              <!-- شارة المشغّل الثاني -->
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rosegoldlight text-[#9c4268] text-xs font-extrabold">
+                  أغنية مني ليكي 💌
+                </span>
+                <!-- موجات الإيكولايزر -->
+                <div id="eq2" class="flex items-end gap-1 h-6">
+                  <span class="eq-bar"></span>
+                  <span class="eq-bar"></span>
+                  <span class="eq-bar"></span>
+                  <span class="eq-bar"></span>
+                  <span class="eq-bar"></span>
+                </div>
+              </div>
+
+              <!-- الأسطوانة + عنوان الأغنية + زر التشغيل -->
+              <div class="flex items-center gap-4 mb-5">
+                <!-- أسطوانة فينيل دوارة -->
+                <div id="vinyl2" class="vinyl-spin shrink-0 w-20 h-20 rounded-full bg-gradient-to-br from-[#4a1830] via-[#8c2d57] to-[#341122] p-2 shadow-pink-glow flex items-center justify-center relative border-2 border-pinksoft">
+                  <div class="absolute inset-2.5 rounded-full border border-white/15"></div>
+                  <div class="absolute inset-4 rounded-full border border-white/10"></div>
+                  <div class="w-8 h-8 rounded-full bg-gradient-to-br from-rosegold to-pinkdeep flex items-center justify-center text-white text-xs shadow-inner">
+                    💌
+                  </div>
+                </div>
+
+                <!-- الاسم والوصف -->
+                <div class="flex-1 min-w-0 text-right">
+                  <h3 class="text-xl font-black text-pinkdeep truncate">خليك فاكرني</h3>
+                  <p class="text-sm font-bold text-[#8a4566] truncate">إهداء خاص ليكي</p>
+                  <p id="statusText2" class="text-xs font-semibold text-[#a56282] mt-1">جاهزة للتشغيل 🎶</p>
+                </div>
+
+                <!-- زر تشغيل / إيقاف -->
+                <button
+                  id="playBtn2"
+                  type="button"
+                  aria-label="تشغيل أو إيقاف أغنية خليك فاكرني"
+                  class="shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-pinkdeep to-rosegold text-white shadow-pink-glow hover:scale-105 active:scale-95 transition flex items-center justify-center cursor-pointer"
+                >
+                  <!-- أيقونة التشغيل -->
+                  <svg id="playIcon2" class="w-6 h-6 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5.14v14l11-7-11-7z" />
+                  </svg>
+                  <!-- أيقونة الإيقاف -->
+                  <svg id="pauseIcon2" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- شريط التقدم والوقت -->
+              <div class="space-y-1.5" dir="ltr">
+                <input
+                  id="seekBar2"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="0"
+                  step="0.1"
+                  aria-label="شريط تقدم أغنية خليك فاكرني"
+                  class="pink-range"
+                />
+                <div class="flex items-center justify-between text-xs font-bold text-[#8a4566] tabular-nums">
+                  <span id="currentTime2">0:00</span>
+                  <span id="durationTime2">0:00</span>
+                </div>
+              </div>
+
+              <!-- ملاحظة ذكية وزر اختيار ملف MP3 للتجربة -->
+              <div id="fallbackBox2" class="hidden mt-4 pt-3 border-t border-pinksoft/80 text-center">
+                <p id="fallbackMsg2" class="text-[11px] font-bold text-[#9a5576] mb-2">
+                  حط ملف <code class="bg-pinkbg px-1.5 py-0.5 rounded text-pinkdeep" dir="ltr">song2.mp3</code> جنب الموقع، أو جرب ملف دلوقتي:
+                </p>
+                <label class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 border border-pinkmid/50 text-pinkdeep text-xs font-extrabold hover:bg-pinkbg transition cursor-pointer shadow-sm">
+                  <span>📂</span>
+                  <span>جرب ملف MP3 من جهازك</span>
+                  <input id="filePicker2" type="file" accept="audio/*" class="hidden" />
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =========================================================
+           القسم الثالث: ظرف الرسالة التفاعلي (Love Letter Envelope)
+           ========================================================= -->
+      <section id="letter" class="scroll-mt-28">
+        <div class="glass-card rounded-[34px] p-6 sm:p-10 text-center">
+          <span class="inline-block px-4 py-1 rounded-full bg-pinksoft/85 text-pinkdeep text-xs sm:text-sm font-bold mb-2.5">
+            كلام من القلب 💌
+          </span>
+          <h2 class="font-ruqaa text-3xl sm:text-4xl font-bold text-pinkdeep mb-2">
+            ظرف رسالة ليكي 💌
+          </h2>
+          <p class="text-sm sm:text-base text-[#7e3f5c] font-medium mb-8">
+            اضغطي على الظرف عشان يتفتح وتقري رسالتي ليكي في عيد ميلادك الـ 20
+          </p>
+
+          <!-- الظرف التفاعلي -->
+          <div class="envelope-wrapper py-4">
+            <div
+              id="envelopeEl"
+              class="envelope-container"
+              role="button"
+              tabindex="0"
+              aria-label="اضغطي هنا عشان تفتحي الرسالة"
+            >
+              <div class="envelope-back"></div>
+              <div class="envelope-letter-peek">
+                <span class="text-2xl mb-1">💗</span>
+                <p class="text-sm font-extrabold text-pinkdeep">إلى أحلى نهاد في الدنيا</p>
+                <p class="text-xs text-[#9c5a79] mt-1">كل سنة وإنتِ منورة حياتي..</p>
+              </div>
+              <div class="envelope-front-pocket"></div>
+              <div class="envelope-flap"></div>
+              <div class="wax-seal">❤️</div>
+            </div>
+
+            <button
+              id="openEnvelopeBtn"
+              type="button"
+              class="mt-6 px-6 py-3 rounded-full bg-pinksoft/85 hover:bg-pinksoft text-pinkdeep font-extrabold text-sm sm:text-base transition cursor-pointer"
+            >
+              افتحي الرسالة 💌
+            </button>
+          </div>
+
+          <!-- ===================================================
+               نص الرسالة (يمكنك تعديل الكلام هنا بسهولة لاحقاً)
+               =================================================== -->
+          <div id="openedLetterCard" class="hidden max-w-2xl mx-auto mt-6 text-right fade-slide-up">
+            <div class="lined-paper rounded-[26px] p-6 sm:p-9 border-2 border-pinksoft shadow-soft-card relative">
+              <div class="flex items-center justify-between border-b border-pinksoft pb-3 mb-4">
+                <span class="font-ruqaa text-2xl font-bold text-pinkdeep">نونتي الغالية 🎀</span>
+                <span class="text-xs font-bold text-[#a35b7c] bg-pinkbg px-3 py-1 rounded-full">4 مارس 2027</span>
+              </div>
+
+              <div class="space-y-4 text-base sm:text-lg text-[#5c243d] font-medium">
+                <p>
+                  كل سنة وإنتِ طيبة وبألف خير يا أحلى <strong class="text-pinkdeep">نهاد</strong> في الدنيا كلها..
+                  النهارده كملتي 20 سنة، وعايز أقولك إن وجودك في حياتي من أحلى وأجمل النِعم اللي ربنا رزقني بيها.
+                </p>
+                <p>
+                  بحب ضحكتك اللي بتغير مودي في ثانية، وبحب طيبة قلبك وعفويتك اللي مفيش زيها.
+                  حتى أبسط تفاصيلك وكلامك معايا بيفرقوا معايا أكتر ما تتخيلي يا <strong class="text-pinkdeep">نونوو</strong>.
+                </p>
+                <p>
+                  بتمنالك في سنتك الـ 20 دي إن كل أيامك تبقى هادية وحلوة زي قلبك، وتحققي كل اللي بتتمنيه وأكتر،
+                  وأفضل دايماً جنبك بشوفك بتكبري وبتنجحي ومبسوطة.
+                </p>
+                <p class="font-extrabold text-pinkdeep pt-2">
+                  كل سنة وإنتِ دايماً معايا.. وكل سنة وإنتِ أحلى حاجة في دنيتي 💗✨
+                </p>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-pinksoft flex flex-wrap items-center justify-between gap-3">
+                <span class="text-sm font-bold text-[#8a4566]">— بكل الحب، ليكي دايماً ❤️</span>
+                <button
+                  id="closeEnvelopeBtn"
+                  type="button"
+                  class="px-5 py-2.5 rounded-full bg-pinkbg hover:bg-pinksoft text-pinkdeep font-bold text-sm transition cursor-pointer"
+                >
+                  اقفلي الظرف 💌
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           القسم الرابع: التورتة التفاعلية (Interactive Birthday Cake)
+           ========================================================= -->
+      <section id="cake" class="scroll-mt-28">
+        <div class="glass-card rounded-[34px] p-6 sm:p-10 text-center">
+          <span class="inline-block px-4 py-1 rounded-full bg-pinksoft/85 text-pinkdeep text-xs sm:text-sm font-bold mb-2.5">
+            وقت الأمنيات ✨
+          </span>
+          <h2 class="font-ruqaa text-3xl sm:text-4xl font-bold text-pinkdeep mb-2">
+            اطفي الشمع واتمني أمنية 🎂
+          </h2>
+          <p class="text-sm sm:text-base text-[#7e3f5c] font-medium mb-6">
+            غمّضي عينك يا نونوو، اتمني أحلى أمنية للسنة الجديدة، واضغطي على التورتة!
+          </p>
+
+          <!-- تورتة SVG مرسومة بدقة مع شمع رقم 20 -->
+          <div
+            id="cakeInteractiveArea"
+            class="max-w-xs sm:max-w-sm mx-auto cursor-pointer select-none my-4 transition-transform hover:scale-[1.02]"
+            role="button"
+            tabindex="0"
+            aria-label="اضغطي على التورتة لإطفاء الشمع"
+          >
+            <svg viewBox="0 0 320 290" class="w-full h-auto drop-shadow-xl" xmlns="http://www.w3.org/2000/svg">
+              <!-- ظل الطبق -->
+              <ellipse cx="160" cy="264" rx="122" ry="16" fill="rgba(232, 62, 140, 0.16)" />
+
+              <!-- الطبق -->
+              <ellipse cx="160" cy="254" rx="118" ry="18" fill="#ffffff" stroke="#ffc2d9" stroke-width="3" />
+              <ellipse cx="160" cy="250" rx="102" ry="12" fill="#fff0f6" />
+
+              <!-- الطبقة السفلية -->
+              <path d="M62 184 L62 242 C62 254 258 254 258 242 L258 184 Z" fill="#ff9ebb" />
+              <!-- كريمة الطبقة السفلية -->
+              <path d="M62 184 C62 174 258 174 258 184 L258 202 Q242 216 226 200 Q210 218 192 200 Q176 218 160 202 Q144 218 128 200 Q110 218 94 200 Q78 216 62 202 Z" fill="#fff5f8" />
+              <!-- شريط زينة -->
+              <path d="M62 224 Q160 236 258 224" fill="none" stroke="#e83e8c" stroke-width="4" stroke-dasharray="10 8" stroke-linecap="round" />
+
+              <!-- الطبقة العلوية -->
+              <path d="M90 124 L90 180 C90 190 230 190 230 180 L230 124 Z" fill="#ffb6ce" />
+              <ellipse cx="160" cy="124" rx="70" ry="14" fill="#fff9fb" stroke="#ffd6e7" stroke-width="2" />
+              <!-- كريمة الطبقة العلوية -->
+              <path d="M90 124 L90 144 Q104 158 118 142 Q132 158 146 142 Q160 160 174 142 Q188 158 202 142 Q216 158 230 144 L230 124 C230 132 90 132 90 124 Z" fill="#ffffff" />
+
+              <!-- حبات زينة -->
+              <circle cx="105" cy="122" r="6" fill="#e83e8c" />
+              <circle cx="215" cy="122" r="6" fill="#e83e8c" />
+              <circle cx="160" cy="130" r="5" fill="#ff5c8a" />
+              <circle cx="80" cy="182" r="5.5" fill="#ff5c8a" />
+              <circle cx="240" cy="182" r="5.5" fill="#ff5c8a" />
+
+              <!-- رشات ملونة -->
+              <rect x="115" y="162" width="10" height="4" rx="2" fill="#ffd166" transform="rotate(-15 115 162)" />
+              <rect x="152" y="166" width="10" height="4" rx="2" fill="#e83e8c" transform="rotate(20 152 166)" />
+              <rect x="190" y="160" width="10" height="4" rx="2" fill="#ffffff" transform="rotate(-25 190 160)" />
+              <rect x="96" y="212" width="10" height="4" rx="2" fill="#ffd166" transform="rotate(18 96 212)" />
+              <rect x="210" y="210" width="10" height="4" rx="2" fill="#fff0f6" transform="rotate(-20 210 210)" />
+
+              <!-- شمعة رقم 2 -->
+              <g id="candle2">
+                <text x="134" y="122" text-anchor="middle" font-family="Cairo, sans-serif" font-weight="900" font-size="60" fill="#e83e8c" stroke="#ffffff" stroke-width="3">2</text>
+                <line x1="134" y1="73" x2="134" y2="63" stroke="#5c243d" stroke-width="2.5" stroke-linecap="round" />
+                <g class="candle-flame">
+                  <path d="M134 32 C145 48 143 62 134 64 C125 62 123 48 134 32 Z" fill="#ff9f1c" />
+                  <path d="M134 42 C140 52 139 61 134 62 C129 61 128 52 134 42 Z" fill="#fff3b0" />
+                </g>
+                <g class="smoke-puff">
+                  <circle cx="134" cy="56" r="6" fill="#d8c3ce" />
+                  <circle cx="138" cy="46" r="8" fill="#e5d4dd" />
+                </g>
+              </g>
+
+              <!-- شمعة رقم 0 -->
+              <g id="candle0">
+                <text x="184" y="122" text-anchor="middle" font-family="Cairo, sans-serif" font-weight="900" font-size="60" fill="#ff5c8a" stroke="#ffffff" stroke-width="3">0</text>
+                <line x1="184" y1="73" x2="184" y2="63" stroke="#5c243d" stroke-width="2.5" stroke-linecap="round" />
+                <g class="candle-flame">
+                  <path d="M184 32 C195 48 193 62 184 64 C175 62 173 48 184 32 Z" fill="#ff9f1c" />
+                  <path d="M184 42 C190 52 189 61 184 62 C179 61 178 52 184 42 Z" fill="#fff3b0" />
+                </g>
+                <g class="smoke-puff">
+                  <circle cx="184" cy="56" r="6" fill="#d8c3ce" />
+                  <circle cx="188" cy="46" r="8" fill="#e5d4dd" />
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <!-- أزرار التحكم في التورتة -->
+          <div class="flex flex-wrap items-center justify-center gap-3 mt-2">
+            <button
+              id="blowCandlesBtn"
+              type="button"
+              class="px-7 py-3.5 rounded-full bg-gradient-to-r from-pinkdeep to-pinkmid text-white font-extrabold text-sm sm:text-base shadow-pink-glow hover:scale-105 active:scale-95 transition cursor-pointer"
+            >
+              اطفي الشمع 🌬️
+            </button>
+            <button
+              id="relightCandlesBtn"
+              type="button"
+              class="hidden px-6 py-3.5 rounded-full bg-white border-2 border-pinkmid/50 text-pinkdeep font-extrabold text-sm sm:text-base hover:bg-pinkbg transition cursor-pointer"
+            >
+              ولّع الشمع تاني 🔥
+            </button>
+          </div>
+
+          <!-- رسالة الأمنية بعد الإطفاء -->
+          <div id="cakeWishMessage" class="hidden max-w-xl mx-auto mt-6 p-5 rounded-3xl bg-gradient-to-r from-pinkbg via-white to-pinkbg border-2 border-pinkmid/45 shadow-soft-card fade-slide-up">
+            <div class="text-3xl mb-2">🎉🎀💗</div>
+            <p class="text-lg sm:text-xl font-black text-pinkdeep leading-relaxed">
+              أمنيتي ليكي إن سنتك الـ 20 تكون أحلى سنة في حياتك يا نونوو 💗
+            </p>
+            <p class="text-sm text-[#7a3b58] font-medium mt-1">
+              ويا رب كل أمنية اتمنيتيها دلوقتي تتحققلك قريب أوي ✨
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           القسم الخامس: كروت ليه بحبك (6 Interactive Flip Cards)
+           ========================================================= -->
+      <section id="cards" class="scroll-mt-28">
+        <div class="text-center mb-7">
+          <span class="inline-block px-4 py-1 rounded-full bg-pinksoft/85 text-pinkdeep text-xs sm:text-sm font-bold mb-2.5">
+            6 أسباب من وسط مليون سبب 🌸
+          </span>
+          <h2 class="font-ruqaa text-3xl sm:text-4xl font-bold text-pinkdeep mb-2">
+            حاجات بحبها فيكي يا نونتي ✨
+          </h2>
+          <p class="text-sm sm:text-base text-[#7e3f5c] font-medium">
+            اضغطي على كل كارت عشان يتقلب وتشوفي الكلام اللي جواه
+          </p>
+        </div>
+
+        <div id="flipCardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <!-- يتم توليد الكروت ديناميكياً من مصفوفة LOVE_CARDS_DATA -->
+        </div>
+      </section>
+
+      <!-- =========================================================
+           القسم السادس: كويز سريع عننا (5 Questions Quiz)
+           ========================================================= -->
+      <section id="quiz" class="scroll-mt-28">
+        <div class="glass-card rounded-[34px] p-6 sm:p-10">
+          <div class="text-center mb-6">
+            <span class="inline-block px-4 py-1 rounded-full bg-pinksoft/85 text-pinkdeep text-xs sm:text-sm font-bold mb-2.5">
+              اختبار لطيف 👑
+            </span>
+            <h2 class="font-ruqaa text-3xl sm:text-4xl font-bold text-pinkdeep mb-2">
+              كويز سريع عننا 🎀
+            </h2>
+            <p class="text-sm sm:text-base text-[#7e3f5c] font-medium">
+              5 أسئلة خفيفة عشان نشوف هتاخدي كام من 5 يا نونوو!
+            </p>
+          </div>
+
+          <!-- جسم الكويز -->
+          <div id="quizContainer" class="max-w-xl mx-auto">
+            <!-- شريط التقدم -->
+            <div class="flex items-center justify-between text-xs sm:text-sm font-bold text-[#8a4566] mb-2">
+              <span id="quizStepLabel">سؤال 1 من 5</span>
+              <span id="quizProgressPercent">20%</span>
+            </div>
+            <div class="w-full h-3 rounded-full bg-pinksoft/65 overflow-hidden mb-6">
+              <div id="quizProgressBar" class="h-full rounded-full bg-gradient-to-r from-pinkdeep to-pinkmid transition-all duration-500" style="width: 20%;"></div>
+            </div>
+
+            <!-- نص السؤال -->
+            <div class="bg-white/90 rounded-3xl p-5 sm:p-6 border border-pinksoft shadow-sm mb-4">
+              <h3 id="quizQuestionText" class="text-lg sm:text-xl font-extrabold text-[#5c243d] text-center leading-relaxed"></h3>
+            </div>
+
+            <!-- الاختيارات -->
+            <div id="quizOptions" class="space-y-3"></div>
+
+            <!-- رد الفعل الفوري بعد الاختيار -->
+            <div id="quizFeedbackBox" class="hidden mt-5 p-4 rounded-2xl bg-pinkbg border border-pinkmid/45 text-center fade-slide-up">
+              <p id="quizFeedbackText" class="text-sm sm:text-base font-bold text-pinkdeep mb-3"></p>
+              <button
+                id="quizNextBtn"
+                type="button"
+                class="px-6 py-2.5 rounded-full bg-gradient-to-r from-pinkdeep to-pinkmid text-white font-extrabold text-sm shadow-sm hover:scale-105 transition cursor-pointer"
+              >
+                السؤال اللي بعده ⬅️
+              </button>
+            </div>
+          </div>
+
+          <!-- كارت النتيجة النهائية -->
+          <div id="quizResultCard" class="hidden max-w-xl mx-auto text-center p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white via-pinkbg to-pinksoft/60 border-2 border-pinkmid/50 shadow-soft-card fade-slide-up">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-pinkdeep to-pinkmid text-4xl shadow-pink-glow mb-4 bounce-soft">
+              👑
+            </div>
+            <div id="quizScoreBadge" class="inline-block px-4 py-1 rounded-full bg-white text-pinkdeep font-black text-sm border border-pinkmid/40 mb-3">
+              5 / 5 ✨
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-black text-pinkdeep mb-2">
+              نتيجتك: ملكة قلبي 100% 👑💗
+            </h3>
+            <p id="quizScoreNote" class="text-sm sm:text-base text-[#7a3b58] font-bold mb-6 leading-relaxed"></p>
+            <button
+              id="quizReplayBtn"
+              type="button"
+              class="px-7 py-3 rounded-full bg-white border-2 border-pinkmid/50 text-pinkdeep font-extrabold text-sm sm:text-base hover:bg-pinksoft/40 transition cursor-pointer"
+            >
+              إعادة الكويز 🔄
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           الفوتر الختامي
+           ========================================================= -->
+      <footer class="pt-4">
+        <div class="glass-pink rounded-[32px] p-7 sm:p-9 text-center relative overflow-hidden">
+          <div class="text-3xl mb-3">🎀🎂💗</div>
+          <p class="font-ruqaa text-2xl sm:text-3xl font-bold text-pinkdeep mb-2 leading-relaxed">
+            معمول بكل حب عشان أحلى نونتي في الدنيا — عيد ميلاد 20 سعيد 💗
+          </p>
+          <p class="text-xs sm:text-sm font-bold text-[#9c5878] mt-2">
+            نهاد (نونوو) • 4 مارس 2027 ✨
+          </p>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- =================================================================
+       الجافاسكريبت الكامل (العداد + القفل + المشغّلين + الكونفيتي + التفاعل)
+       ================================================================= -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ===========================================================
+         1. الإعدادات الأساسية والبيانات القابلة للتعديل بسهولة
+         =========================================================== */
+      // التاريخ المستهدف: 4 مارس 2027 الساعة 00:00:00 بالتوقيت المحلي
+      const TARGET_DATE = new Date(2027, 2, 4, 0, 0, 0); // 2 = مارس
+      const OFFICIAL_PASSWORD = '432007';
+      const PREVIEW_PASSWORD = 'test20';
+
+      // بيانات كروت "حاجات بحبها فيكي" (عدّلها بحرية لاحقاً)
+      const LOVE_CARDS_DATA = [
+        {
+          icon: '😊',
+          title: 'ضحكتك',
+          message: 'ضحكتك دي أحلى حاجة بشوفها في يومي.. كفيلة تخليني أنسى أي تعب وتخلي الدنيا كلها منورة يا نونتي ✨'
+        },
+        {
+          icon: '🤍',
+          title: 'طيبة قلبك',
+          message: 'قلبك أبيض وصافي بشكل مش موجود في حد تاني، وحنيتك على اللي حواليكي بتخليني أحبك كل يوم أكتر 💗'
+        },
+        {
+          icon: '🌸',
+          title: 'تفاصيلك الصغيرة',
+          message: 'بحب كلامك، طريقتك، ذوقك في كل حاجة، وحتى أبسط التفاصيل اللي ممكن متاخديش بالك منها.. أنا بحفظها كلها 🎀'
+        },
+        {
+          icon: '🫶',
+          title: 'وجودك في يومي',
+          message: 'مجرد إنك موجودة في حياتي بيطمنّي وبيحسسني إني محظوظ بيكي جداً.. ربنا يديمك نعمة حلوة في حياتي دايماً 🌷'
+        },
+        {
+          icon: '🦋',
+          title: 'دلعك يا نونوو',
+          message: 'رقتك وشقاوتك الخفيفة ودلعك يا نونوو بيدّوا للدنيا طعم تاني.. مفيش ألطف ولا أحلى منك في الدنيا كلها 💕'
+        },
+        {
+          icon: '🎂',
+          title: 'أمنيتي ليكي في الـ 20',
+          message: 'في سنتك العشرين بتمنالك راحة بال وفرحة متفارقش عينك، ونجاح كبير في كل خطوة، وإننا نفضل سوا دايماً ✨'
+        }
+      ];
+
+      // بيانات أسئلة الكويز الـ 5 (يمكنك تخصيصها لاحقاً بسهولة)
+      const QUIZ_QUESTIONS = [
+        {
+          question: 'إيه أكتر لون ناعم وحلو بيليق على نونتي وبيعبر عنها؟ 🎀',
+          options: [
+            { text: 'البينك طبعاً بدون نقاش 💗', isBest: true, feedback: 'صح الصح! البينك اتعمل مخصوص عشانك أصلاً 🎀✨' },
+            { text: 'البينك الفاتح والروز جولد 🌸', isBest: true, feedback: 'ذوقك يجنن يا نونوو.. ده أرق اختيار في الدنيا 🌷' },
+            { text: 'أي لون عليه لمسة بينك ✨', isBest: true, feedback: 'إجابة دبلوماسية شيك جداً.. وبرضو بينك في الآخر 😉💗' }
+          ]
+        },
+        {
+          question: 'القمر نهاد هتكمل كام سنة يوم 4 مارس 2027؟ 🎂',
+          options: [
+            { text: '20 سنة.. وأحلى عشرين في الدنيا 🎉', isBest: true, feedback: 'أحلى عشرين سنة يا نونتي، عقبال العمر كله في سعادة 🎂💗' },
+            { text: 'لسه بنوتة صغننة في عيني دايماً 🦋', isBest: true, feedback: 'ده أكيد! مهما كبرتي هتفضلي نونوو الصغننة الحلوة 🎀' },
+            { text: '20 سنة حلاوة وطيبة قلب ✨', isBest: true, feedback: 'أدق إجابة ممكن تتقال.. ربنا يحفظك ليا ❤️' }
+          ]
+        },
+        {
+          question: 'إيه الأغنية اللي بتحبيها وموجودة في أول مشغّل فوق؟ 🎵',
+          options: [
+            { text: 'هل عندك شك — كاظم الساهر 💗', isBest: true, feedback: 'الله عليكي! مفيش أحلى من ذوقك في الأغاني 🎶✨' },
+            { text: 'خليك فاكرني 💌', isBest: false, feedback: 'دي الأغنية التانية اللي مني ليكي يا نونوو.. وبرضو عسل عشان فاكراها 💗' },
+            { text: 'الاتنين حلوين وأغلى عندي 🎀', isBest: true, feedback: 'أحلى إجابة.. الاتنين ليكي وتحت أمرك دايماً 🎧❤️' }
+          ]
+        },
+        {
+          question: 'إيه أكتر حاجة فيكي بتخلي يومي أحلى في ثانية؟ ✨',
+          options: [
+            { text: 'ضحكتك وصوتك 😊', isBest: true, feedback: 'فعلاً! أول ما بسمع ضحكتك كل حاجة بتبقى تمام 💗' },
+            { text: 'قلبك الطيب وكلامك الحلو 🤍', isBest: true, feedback: 'طيبة قلبك دي مفيش زيها والله، ربنا يباركلي فيكي 🌸' },
+            { text: 'كل حاجة فيكي على بعضها 👑', isBest: true, feedback: 'إجابة 10 من 10.. إنتِ كلها على بعضك عسل 👑💗' }
+          ]
+        },
+        {
+          question: 'آخر سؤال.. مين أكتر حد بيحبك وبيتمنالك كل الخير في سنتك الـ 20؟ ❤️',
+          options: [
+            { text: 'أنا طبعاً (اللي عملك الموقع ده) 😌💗', isBest: true, feedback: 'أكيد ومفيش أي شك.. هل عندك شك؟ 🎶❤️' },
+            { text: 'اللي سهران يظبطلك المفاجأة دي 🎁', isBest: true, feedback: 'تعبك راحة يا نونتي، المهم أشوف الفرحة في عينك 🎀' },
+            { text: 'أكتر حد محظوظ بوجودك في حياته 🫶', isBest: true, feedback: 'فعلاً أنا المحظوظ بيكي.. كل سنة وإنتِ معايا يا نهاد 💗' }
+          ]
+        }
+      ];
+
+      /* ===========================================================
+         2. مراجع عناصر الصفحة (DOM Elements)
+         =========================================================== */
+      let isPreviewModeActive = false;
+
+      const lockScreen = document.getElementById('lockScreen');
+      const mainWebsite = document.getElementById('mainWebsite');
+      const creatorPreviewBar = document.getElementById('creatorPreviewBar');
+      const backToLockBtn = document.getElementById('backToLockBtn');
+      const stickyNav = document.getElementById('stickyNav');
+
+      const cdDays = document.getElementById('cdDays');
+      const cdHours = document.getElementById('cdHours');
+      const cdMinutes = document.getElementById('cdMinutes');
+      const cdSeconds = document.getElementById('cdSeconds');
+      const countdownStatusPill = document.getElementById('countdownStatusPill');
+
+      const unlockForm = document.getElementById('unlockForm');
+      const passwordInput = document.getElementById('passwordInput');
+      const lockFeedback = document.getElementById('lockFeedback');
+
+      const heroConfettiBtn = document.getElementById('heroConfettiBtn');
+
+      const envelopeEl = document.getElementById('envelopeEl');
+      const openEnvelopeBtn = document.getElementById('openEnvelopeBtn');
+      const closeEnvelopeBtn = document.getElementById('closeEnvelopeBtn');
+      const openedLetterCard = document.getElementById('openedLetterCard');
+
+      const cakeInteractiveArea = document.getElementById('cakeInteractiveArea');
+      const blowCandlesBtn = document.getElementById('blowCandlesBtn');
+      const relightCandlesBtn = document.getElementById('relightCandlesBtn');
+      const cakeWishMessage = document.getElementById('cakeWishMessage');
+
+      const flipCardsGrid = document.getElementById('flipCardsGrid');
+
+      const quizContainer = document.getElementById('quizContainer');
+      const quizStepLabel = document.getElementById('quizStepLabel');
+      const quizProgressPercent = document.getElementById('quizProgressPercent');
+      const quizProgressBar = document.getElementById('quizProgressBar');
+      const quizQuestionText = document.getElementById('quizQuestionText');
+      const quizOptions = document.getElementById('quizOptions');
+      const quizFeedbackBox = document.getElementById('quizFeedbackBox');
+      const quizFeedbackText = document.getElementById('quizFeedbackText');
+      const quizNextBtn = document.getElementById('quizNextBtn');
+      const quizResultCard = document.getElementById('quizResultCard');
+      const quizScoreBadge = document.getElementById('quizScoreBadge');
+      const quizScoreNote = document.getElementById('quizScoreNote');
+      const quizReplayBtn = document.getElementById('quizReplayBtn');
+
+      /* ===========================================================
+         3. خلفية القلوب واللمعان المتطاير
+         =========================================================== */
+      function initFloatingBackground() {
+        const container = document.getElementById('floatingBg');
+        if (!container) return;
+        const symbols = ['💗', '🌸', '✨', '🎀', '🤍', '💕'];
+        const count = window.innerWidth < 640 ? 14 : 22;
+
+        container.innerHTML = '';
+        for (let i = 0; i < count; i++) {
+          const span = document.createElement('span');
+          span.className = 'float-particle';
+          span.textContent = symbols[i % symbols.length];
+          span.style.left = `${Math.random() * 100}%`;
+          span.style.fontSize = `${14 + Math.random() * 16}px`;
+          span.style.animationDuration = `${11 + Math.random() * 12}s`;
+          span.style.animationDelay = `${Math.random() * 10}s`;
+          container.appendChild(span);
+        }
+      }
+
+      /* ===========================================================
+         4. نظام الكونفيتي بالكانفاس (Pink & Rose Gold Confetti)
+         =========================================================== */
+      const confettiCanvas = document.getElementById('confettiCanvas');
+      const ctx = confettiCanvas.getContext('2d');
+      let confettiParticles = [];
+      let confettiFrameId = null;
+
+      function resizeConfettiCanvas() {
+        confettiCanvas.width = window.innerWidth;
+        confettiCanvas.height = window.innerHeight;
+      }
+
+      function launchConfetti(amount = 115) {
+        const colors = ['#e83e8c', '#ff85a2', '#ffd6e7', '#d89b8d', '#ffd166', '#ffffff', '#ff5c8a'];
+        const cx = confettiCanvas.width / 2;
+        const cy = confettiCanvas.height * 0.34;
+
+        for (let i = 0; i < amount; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = 3 + Math.random() * 9.5;
+          confettiParticles.push({
+            x: cx + (Math.random() - 0.5) * 160,
+            y: cy + (Math.random() - 0.5) * 80,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 4.5,
+            size: 6 + Math.random() * 7,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            rotation: Math.random() * 360,
+            rotationSpeed: (Math.random() - 0.5) * 10,
+            gravity: 0.16 + Math.random() * 0.08,
+            drag: 0.985,
+            alpha: 1,
+            shape: Math.random() > 0.65 ? 'heart' : (Math.random() > 0.5 ? 'circle' : 'rect')
+          });
+        }
+
+        if (!confettiFrameId) {
+          animateConfetti();
+        }
+      }
+
+      function drawHeart(context, x, y, size) {
+        context.beginPath();
+        const topCurveHeight = size * 0.3;
+        context.moveTo(x, y + topCurveHeight);
+        context.bezierCurveTo(x, y, x - size / 2, y, x - size / 2, y + topCurveHeight);
+        context.bezierCurveTo(x - size / 2, y + (size + topCurveHeight) / 2, x, y + (size + topCurveHeight) / 1.2, x, y + size);
+        context.bezierCurveTo(x, y + (size + topCurveHeight) / 1.2, x + size / 2, y + (size + topCurveHeight) / 2, x + size / 2, y + topCurveHeight);
+        context.bezierCurveTo(x + size / 2, y, x, y, x, y + topCurveHeight);
+        context.closePath();
+        context.fill();
+      }
+
+      function animateConfetti() {
+        ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+
+        for (let i = confettiParticles.length - 1; i >= 0; i--) {
+          const p = confettiParticles[i];
+          p.vx *= p.drag;
+          p.vy = p.vy * p.drag + p.gravity;
+          p.x += p.vx;
+          p.y += p.vy;
+          p.rotation += p.rotationSpeed;
+
+          if (p.y > confettiCanvas.height * 0.8) {
+            p.alpha -= 0.025;
+          }
+
+          if (p.alpha <= 0 || p.y > confettiCanvas.height + 40) {
+            confettiParticles.splice(i, 1);
+            continue;
+          }
+
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, p.alpha);
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.rotation * Math.PI) / 180);
+          ctx.fillStyle = p.color;
+
+          if (p.shape === 'heart') {
+            drawHeart(ctx, 0, -p.size / 2, p.size * 1.15);
+          } else if (p.shape === 'circle') {
+            ctx.beginPath();
+            ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+            ctx.fill();
+          } else {
+            ctx.fillRect(-p.size / 2, -p.size / 3, p.size, p.size * 0.65);
+          }
+          ctx.restore();
+        }
+
+        if (confettiParticles.length > 0) {
+          confettiFrameId = requestAnimationFrame(animateConfetti);
+        } else {
+          confettiFrameId = null;
+          ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+        }
+      }
+
+      /* ===========================================================
+         5. مؤثرات صوتية خفيفة للتفاعل (بدون ملفات خارجية)
+         =========================================================== */
+      let sfxAudioCtx = null;
+
+      function playSoftChime(freqs = [523.25, 659.25, 783.99]) {
+        try {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContextClass) return;
+          if (!sfxAudioCtx) sfxAudioCtx = new AudioContextClass();
+          if (sfxAudioCtx.state === 'suspended') sfxAudioCtx.resume();
+
+          freqs.forEach((freq, idx) => {
+            setTimeout(() => {
+              const now = sfxAudioCtx.currentTime;
+              const osc = sfxAudioCtx.createOscillator();
+              const gain = sfxAudioCtx.createGain();
+              osc.type = 'triangle';
+              osc.frequency.setValueAtTime(freq, now);
+              gain.gain.setValueAtTime(0.0001, now);
+              gain.gain.exponentialRampToValueAtTime(0.06, now + 0.03);
+              gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.42);
+              osc.connect(gain);
+              gain.connect(sfxAudioCtx.destination);
+              osc.start(now);
+              osc.stop(now + 0.45);
+            }, idx * 95);
+          });
+        } catch (err) {
+          // تجاهل أي قيود صوت بأمان
+        }
+      }
+
+      /* ===========================================================
+         6. نظام مشغّلي الـ MP3 المزدوج (مع إيقاف متبادل + ملف محلي)
+         =========================================================== */
+      function formatSeconds(sec) {
+        if (!Number.isFinite(sec) || sec < 0) return '0:00';
+        const mins = Math.floor(sec / 60);
+        const secs = Math.floor(sec % 60);
+        return `${mins}:${String(secs).padStart(2, '0')}`;
+      }
+
+      const players = [];
+
+      function setupMp3Player(config) {
+        const audio = document.getElementById(config.audioId);
+        const card = document.getElementById(config.cardId);
+        const playBtn = document.getElementById(config.playBtnId);
+        const playIcon = document.getElementById(config.playIconId);
+        const pauseIcon = document.getElementById(config.pauseIconId);
+        const vinyl = document.getElementById(config.vinylId);
+        const eq = document.getElementById(config.eqId);
+        const seekBar = document.getElementById(config.seekBarId);
+        const currentTimeEl = document.getElementById(config.currentTimeId);
+        const durationTimeEl = document.getElementById(config.durationTimeId);
+        const statusText = document.getElementById(config.statusTextId);
+        const fallbackBox = document.getElementById(config.fallbackBoxId);
+        const fallbackMsg = document.getElementById(config.fallbackMsgId);
+        const filePicker = document.getElementById(config.filePickerId);
+
+        let objectUrl = null;
+        let isDraggingSeek = false;
+        let hasLoadError = false;
+
+        function updateSeekFill(percent) {
+          const safePct = Math.max(0, Math.min(100, percent || 0));
+          seekBar.style.background = `linear-gradient(to right, #e83e8c 0%, #ff85a2 ${safePct}%, #ffd6e7 ${safePct}%, #ffd6e7 100%)`;
+        }
+
+        function setPlayingUI(isPlaying) {
+          if (isPlaying) {
+            playIcon.classList.add('hidden');
+            pauseIcon.classList.remove('hidden');
+            vinyl.classList.add('playing');
+            eq.classList.add('eq-playing');
+            card.classList.add('ring-2', 'ring-pinkmid/70');
+            statusText.textContent = 'شغالة دلوقتي 💗';
+          } else {
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+            vinyl.classList.remove('playing');
+            eq.classList.remove('eq-playing');
+            card.classList.remove('ring-2', 'ring-pinkmid/70');
+            if (!hasLoadError) {
+              statusText.textContent = audio.currentTime > 0 ? 'متوقفة مؤقتاً ⏸️' : 'جاهزة للتشغيل 🎶';
+            }
+          }
+        }
+
+        function showFallback(showErrorHint) {
+          fallbackBox.classList.remove('hidden');
+          if (showErrorHint) {
+            fallbackMsg.innerHTML = `ملف <code class="bg-pinkbg px-1.5 py-0.5 rounded text-pinkdeep" dir="ltr">${config.defaultFile}</code> مش موجود في نفس الفولدر لسه — تقدر تجربه دلوقتي من جهازك:`;
+          } else {
+            fallbackMsg.innerHTML = `الملف الافتراضي <code class="bg-pinkbg px-1.5 py-0.5 rounded text-pinkdeep" dir="ltr">${config.defaultFile}</code> (تقدر تجرب ملف MP3 من جهازك دلوقتي):`;
+          }
+        }
+
+        function pauseThis() {
+          if (!audio.paused) {
+            audio.pause();
+          }
+          setPlayingUI(false);
+        }
+
+        // زر التشغيل والإيقاف مع الإيقاف المتبادل لباقي المشغّلات
+        playBtn.addEventListener('click', () => {
+          if (audio.paused) {
+            // إيقاف أي مشغّل آخر شغال عشان الصوت ميدخلش في بعضه
+            players.forEach((p) => {
+              if (p.audio !== audio) p.pause();
+            });
+
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+              playPromise
+                .then(() => {
+                  hasLoadError = false;
+                  setPlayingUI(true);
+                })
+                .catch(() => {
+                  hasLoadError = true;
+                  setPlayingUI(false);
+                  statusText.textContent = `ملف ${config.defaultFile} غير موجود بعد 📂`;
+                  showFallback(true);
+                });
+            }
+          } else {
+            audio.pause();
+            setPlayingUI(false);
+          }
+        });
+
+        // تحديث المدة الإجمالية عند تحميل بيانات الملف
+        audio.addEventListener('loadedmetadata', () => {
+          hasLoadError = false;
+          durationTimeEl.textContent = formatSeconds(audio.duration);
+          seekBar.value = 0;
+          updateSeekFill(0);
+          statusText.textContent = 'جاهزة للتشغيل 🎶';
+          if (!isPreviewModeActive) {
+            fallbackBox.classList.add('hidden');
+          }
+        });
+
+        // تحديث الوقت وشريط التقدم أثناء التشغيل
+        audio.addEventListener('timeupdate', () => {
+          if (isDraggingSeek) return;
+          const dur = audio.duration;
+          const cur = audio.currentTime;
+          currentTimeEl.textContent = formatSeconds(cur);
+          if (Number.isFinite(dur) && dur > 0) {
+            const pct = (cur / dur) * 100;
+            seekBar.value = pct;
+            updateSeekFill(pct);
+          }
+        });
+
+        // عند انتهاء الأغنية
+        audio.addEventListener('ended', () => {
+          setPlayingUI(false);
+          seekBar.value = 0;
+          currentTimeEl.textContent = '0:00';
+          updateSeekFill(0);
+          statusText.textContent = 'انتهت الأغنية — اضغطي لإعادة التشغيل 🔁';
+        });
+
+        // عند عدم وجود ملف الـ MP3 المحلي بعد
+        audio.addEventListener('error', () => {
+          hasLoadError = true;
+          setPlayingUI(false);
+          statusText.textContent = `في انتظار ملف ${config.defaultFile} 🎵`;
+          showFallback(true);
+        });
+
+        // التقديم والتأخير التفاعلي على شريط التقدم
+        seekBar.addEventListener('input', () => {
+          isDraggingSeek = true;
+          const pct = Number(seekBar.value);
+          updateSeekFill(pct);
+          if (Number.isFinite(audio.duration) && audio.duration > 0) {
+            currentTimeEl.textContent = formatSeconds((pct / 100) * audio.duration);
+          }
+        });
+
+        seekBar.addEventListener('change', () => {
+          const pct = Number(seekBar.value);
+          if (Number.isFinite(audio.duration) && audio.duration > 0) {
+            audio.currentTime = (pct / 100) * audio.duration;
+          }
+          isDraggingSeek = false;
+        });
+
+        // اختيار ملف MP3 محلي من جهاز المصمم للتجربة الفورية
+        filePicker.addEventListener('change', (e) => {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+
+          try {
+            if (objectUrl) {
+              URL.revokeObjectURL(objectUrl);
+            }
+            objectUrl = URL.createObjectURL(file);
+            hasLoadError = false;
+
+            // إيقاف المشغّل الآخر وتشغيل الملف المختار فوراً
+            players.forEach((p) => {
+              if (p.audio !== audio) p.pause();
+            });
+
+            audio.src = objectUrl;
+            audio.load();
+            statusText.textContent = `تم تحميل: ${file.name}`;
+
+            const p = audio.play();
+            if (p !== undefined) {
+              p.then(() => setPlayingUI(true)).catch(() => setPlayingUI(false));
+            }
+          } catch (err) {
+            statusText.textContent = 'تعذر تشغيل الملف المختار';
+          }
+        });
+
+        updateSeekFill(0);
+
+        const controller = {
+          audio,
+          pause: pauseThis,
+          syncPreviewVisibility: () => {
+            if (isPreviewModeActive) {
+              showFallback(hasLoadError);
+            } else if (!hasLoadError) {
+              fallbackBox.classList.add('hidden');
+            }
+          }
+        };
+
+        players.push(controller);
+        return controller;
+      }
+
+      function pauseAllPlayers() {
+        players.forEach((p) => p.pause());
+      }
+
+      // تهيئة المشغّلين
+      setupMp3Player({
+        audioId: 'audio1',
+        cardId: 'playerCard1',
+        playBtnId: 'playBtn1',
+        playIconId: 'playIcon1',
+        pauseIconId: 'pauseIcon1',
+        vinylId: 'vinyl1',
+        eqId: 'eq1',
+        seekBarId: 'seekBar1',
+        currentTimeId: 'currentTime1',
+        durationTimeId: 'durationTime1',
+        statusTextId: 'statusText1',
+        fallbackBoxId: 'fallbackBox1',
+        fallbackMsgId: 'fallbackMsg1',
+        filePickerId: 'filePicker1',
+        defaultFile: 'song1.mp3'
+      });
+
+      setupMp3Player({
+        audioId: 'audio2',
+        cardId: 'playerCard2',
+        playBtnId: 'playBtn2',
+        playIconId: 'playIcon2',
+        pauseIconId: 'pauseIcon2',
+        vinylId: 'vinyl2',
+        eqId: 'eq2',
+        seekBarId: 'seekBar2',
+        currentTimeId: 'currentTime2',
+        durationTimeId: 'durationTime2',
+        statusTextId: 'statusText2',
+        fallbackBoxId: 'fallbackBox2',
+        fallbackMsgId: 'fallbackMsg2',
+        filePickerId: 'filePicker2',
+        defaultFile: 'song2.mp3'
+      });
+
+      /* ===========================================================
+         7. العداد التنازلي ومنطق شاشة القفل
+         =========================================================== */
+      function padTwo(num) {
+        return String(num).padStart(2, '0');
+      }
+
+      // تحويل الأرقام العربية الشرقية (٠-٩) إلى إنجليزية (0-9) تلقائياً
+      function normalizeDigits(str) {
+        const arabicNums = '٠١٢٣٤٥٦٧٨٩';
+        return str.replace(/[٠-٩]/g, (d) => String(arabicNums.indexOf(d)));
+      }
+
+      function updateCountdown() {
+        const now = new Date();
+        const diff = TARGET_DATE.getTime() - now.getTime();
+
+        if (diff <= 0) {
+          cdDays.textContent = '00';
+          cdHours.textContent = '00';
+          cdMinutes.textContent = '00';
+          cdSeconds.textContent = '00';
+          countdownStatusPill.innerHTML = '<span>🎉</span><span>الميعاد جه! اكتبي كلمة السر وافتحي المفاجأة يا نونتي</span>';
+          return true;
+        }
+
+        const totalSeconds = Math.floor(diff / 1000);
+        const days = Math.floor(totalSeconds / 86400);
+        const hours = Math.floor((totalSeconds % 86400) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        cdDays.textContent = padTwo(days);
+        cdHours.textContent = padTwo(hours);
+        cdMinutes.textContent = padTwo(minutes);
+        cdSeconds.textContent = padTwo(seconds);
+        return false;
+      }
+
+      function showLockMessage(text, type) {
+        lockFeedback.classList.remove(
+          'hidden', 'shake-anim',
+          'bg-pinkbg', 'text-pinkdeep', 'border-pinkmid/45',
+          'bg-amber-50', 'text-amber-800', 'border-amber-200'
+        );
+        void lockFeedback.offsetWidth; // إعادة تفعيل أنيميشن الاهتزاز
+
+        if (type === 'early') {
+          lockFeedback.classList.add('bg-pinkbg', 'text-pinkdeep', 'border-pinkmid/45', 'shake-anim');
+        } else {
+          lockFeedback.classList.add('bg-amber-50', 'text-amber-800', 'border-amber-200', 'shake-anim');
+        }
+        lockFeedback.textContent = text;
+      }
+
+      function openMainWebsite(previewMode) {
+        isPreviewModeActive = Boolean(previewMode);
+        lockFeedback.classList.add('hidden');
+        lockScreen.classList.add('opacity-0');
+
+        setTimeout(() => {
+          lockScreen.classList.add('hidden');
+          mainWebsite.classList.remove('hidden');
+
+          if (isPreviewModeActive) {
+            creatorPreviewBar.classList.remove('hidden');
+            stickyNav.classList.add('top-11', 'sm:top-10');
+            stickyNav.classList.remove('top-0');
+          } else {
+            creatorPreviewBar.classList.add('hidden');
+            stickyNav.classList.remove('top-11', 'sm:top-10');
+            stickyNav.classList.add('top-0');
+          }
+
+          players.forEach((p) => p.syncPreviewVisibility());
+
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          launchConfetti(140);
+          playSoftChime([523.25, 659.25, 783.99, 1046.5]);
+        }, 420);
+      }
+
+      function returnToLockScreen() {
+        pauseAllPlayers();
+        isPreviewModeActive = false;
+        creatorPreviewBar.classList.add('hidden');
+        mainWebsite.classList.add('hidden');
+        lockScreen.classList.remove('hidden');
+        passwordInput.value = '';
+        lockFeedback.classList.add('hidden');
+
+        setTimeout(() => {
+          lockScreen.classList.remove('opacity-0');
+        }, 30);
+      }
+
+      unlockForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const cleaned = normalizeDigits(passwordInput.value.trim());
+
+        // 1) كلمة سر وضع المعاينة السري (تعمل في أي وقت)
+        if (cleaned.toLowerCase() === PREVIEW_PASSWORD) {
+          openMainWebsite(true);
+          return;
+        }
+
+        // 2) كلمة السر الرسمية
+        if (cleaned === OFFICIAL_PASSWORD) {
+          const now = new Date();
+          if (now.getTime() >= TARGET_DATE.getTime()) {
+            openMainWebsite(false);
+          } else {
+            showLockMessage(
+              'لسه بدري يا نونتي 🎀 استني العداد يخلص وأول دقيقة في عيد ميلادك هتفتحلك المفاجأة!',
+              'early'
+            );
+          }
+        } else {
+          showLockMessage(
+            'جربي تاني يا نونوو.. كلمة السر هي تاريخ يومك المميز 😉',
+            'wrong'
+          );
+        }
+      });
+
+      backToLockBtn.addEventListener('click', returnToLockScreen);
+
+      /* ===========================================================
+         8. زر الاحتفال الإضافي في الهيرو
+         =========================================================== */
+      heroConfettiBtn.addEventListener('click', () => {
+        launchConfetti(135);
+        playSoftChime([523.25, 659.25, 783.99, 1046.5]);
+      });
+
+      /* ===========================================================
+         9. ظرف الرسالة التفاعلي (3D Envelope)
+         =========================================================== */
+      let isEnvelopeOpen = false;
+
+      function openEnvelope() {
+        if (isEnvelopeOpen) return;
+        isEnvelopeOpen = true;
+        envelopeEl.classList.add('opened');
+        openEnvelopeBtn.classList.add('hidden');
+        playSoftChime([587.33, 739.99]);
+
+        setTimeout(() => {
+          openedLetterCard.classList.remove('hidden');
+          openedLetterCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 520);
+      }
+
+      function closeEnvelope() {
+        isEnvelopeOpen = false;
+        openedLetterCard.classList.add('hidden');
+        envelopeEl.classList.remove('opened');
+        openEnvelopeBtn.classList.remove('hidden');
+        playSoftChime([523.25]);
+      }
+
+      envelopeEl.addEventListener('click', openEnvelope);
+      envelopeEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openEnvelope();
+        }
+      });
+      openEnvelopeBtn.addEventListener('click', openEnvelope);
+      closeEnvelopeBtn.addEventListener('click', closeEnvelope);
+
+      /* ===========================================================
+         10. التورتة التفاعلية وإطفاء الشمع
+         =========================================================== */
+      let candlesLit = true;
+
+      function blowOutCandles() {
+        if (!candlesLit) return;
+        candlesLit = false;
+
+        document.querySelectorAll('.candle-flame').forEach((f) => f.classList.add('flame-off'));
+        document.querySelectorAll('.smoke-puff').forEach((s) => {
+          s.classList.remove('smoke-active');
+          void s.offsetWidth;
+          s.classList.add('smoke-active');
+        });
+
+        blowCandlesBtn.classList.add('hidden');
+        relightCandlesBtn.classList.remove('hidden');
+        cakeWishMessage.classList.remove('hidden');
+
+        launchConfetti(165);
+        playSoftChime([523.25, 659.25, 783.99, 1046.5]);
+      }
+
+      function relightCandles() {
+        candlesLit = true;
+        document.querySelectorAll('.candle-flame').forEach((f) => f.classList.remove('flame-off'));
+        document.querySelectorAll('.smoke-puff').forEach((s) => s.classList.remove('smoke-active'));
+
+        blowCandlesBtn.classList.remove('hidden');
+        relightCandlesBtn.classList.add('hidden');
+        cakeWishMessage.classList.add('hidden');
+        playSoftChime([587.33]);
+      }
+
+      blowCandlesBtn.addEventListener('click', blowOutCandles);
+      relightCandlesBtn.addEventListener('click', relightCandles);
+      cakeInteractiveArea.addEventListener('click', () => {
+        if (candlesLit) blowOutCandles();
+      });
+      cakeInteractiveArea.addEventListener('keydown', (e) => {
+        if ((e.key === 'Enter' || e.key === ' ') && candlesLit) {
+          e.preventDefault();
+          blowOutCandles();
+        }
+      });
+
+      /* ===========================================================
+         11. توليد كروت "حاجات بحبها فيكي" (6 كروت)
+         =========================================================== */
+      function renderLoveCards() {
+        flipCardsGrid.innerHTML = '';
+        LOVE_CARDS_DATA.forEach((card, index) => {
+          const cardWrapper = document.createElement('div');
+          cardWrapper.className = 'flip-card';
+          cardWrapper.setAttribute('role', 'button');
+          cardWrapper.setAttribute('tabindex', '0');
+          cardWrapper.setAttribute('aria-label', `كارت ${index + 1}: ${card.title}`);
+
+          cardWrapper.innerHTML = `
+            <div class="flip-card-inner">
+              <div class="flip-face flip-front">
+                <span class="absolute top-3.5 left-4 text-xs font-black text-pinkmid/80">#${index + 1}</span>
+                <div class="w-14 h-14 rounded-2xl bg-pinkbg border border-pinkmid/35 flex items-center justify-center text-3xl mb-3 shadow-sm">
+                  ${card.icon}
+                </div>
+                <h3 class="text-lg font-black text-pinkdeep mb-1">${card.title}</h3>
+                <span class="text-xs font-bold text-[#a35a7c] bg-white/90 px-3.5 py-1 rounded-full mt-2 shadow-sm">
+                  اضغطي هنا 💗
+                </span>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="text-2xl mb-2">${card.icon}</span>
+                <p class="text-sm sm:text-base font-bold leading-relaxed">
+                  ${card.message}
+                </p>
+                <span class="text-[11px] opacity-85 mt-3 font-semibold">كارت #${index + 1} 🎀</span>
+              </div>
+            </div>
+          `;
+
+          const toggleFlip = () => {
+            cardWrapper.classList.toggle('flipped');
+            playSoftChime([cardWrapper.classList.contains('flipped') ? 740 : 554]);
+          };
+
+          cardWrapper.addEventListener('click', toggleFlip);
+          cardWrapper.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleFlip();
+            }
+          });
+
+          flipCardsGrid.appendChild(cardWrapper);
+        });
+      }
+
+      /* ===========================================================
+         12. كويز سريع عننا (5 أسئلة مع حساب النتيجة)
+         =========================================================== */
+      let currentQuizIdx = 0;
+      let quizScore = 0;
+      let answeredCurrent = false;
+
+      function renderQuizQuestion() {
+        const total = QUIZ_QUESTIONS.length;
+        const q = QUIZ_QUESTIONS[currentQuizIdx];
+        answeredCurrent = false;
+
+        const pct = Math.round(((currentQuizIdx + 1) / total) * 100);
+        quizStepLabel.textContent = `سؤال ${currentQuizIdx + 1} من ${total}`;
+        quizProgressPercent.textContent = `${pct}%`;
+        quizProgressBar.style.width = `${pct}%`;
+        quizQuestionText.textContent = q.question;
+
+        quizFeedbackBox.classList.add('hidden');
+        quizOptions.innerHTML = '';
+
+        q.options.forEach((opt) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'w-full text-right px-5 py-4 rounded-2xl bg-white/95 border-2 border-pinksoft hover:border-pinkdeep hover:bg-pinkbg text-[#5c243d] font-bold text-sm sm:text-base transition cursor-pointer flex items-center justify-between gap-3';
+          btn.innerHTML = `<span>${opt.text}</span><span class="text-pinkmid text-lg">💗</span>`;
+
+          btn.addEventListener('click', () => {
+            if (answeredCurrent) return;
+            answeredCurrent = true;
+            if (opt.isBest) quizScore++;
+
+            Array.from(quizOptions.children).forEach((child) => {
+              child.classList.add('opacity-60');
+              child.disabled = true;
+            });
+
+            btn.classList.remove('opacity-60', 'bg-white/95', 'border-pinksoft');
+            btn.classList.add('bg-gradient-to-r', 'from-pinkdeep', 'to-pinkmid', 'text-white', 'border-transparent', 'shadow-pink-glow');
+
+            quizFeedbackText.textContent = opt.feedback;
+            quizNextBtn.textContent = currentQuizIdx === total - 1 ? 'شوفي النتيجة 👑' : 'السؤال اللي بعده ⬅️';
+            quizFeedbackBox.classList.remove('hidden');
+
+            playSoftChime([659.25, 783.99]);
+          });
+
+          quizOptions.appendChild(btn);
+        });
+      }
+
+      quizNextBtn.addEventListener('click', () => {
+        if (currentQuizIdx < QUIZ_QUESTIONS.length - 1) {
+          currentQuizIdx++;
+          renderQuizQuestion();
+        } else {
+          quizContainer.classList.add('hidden');
+          quizResultCard.classList.remove('hidden');
+          quizScoreBadge.textContent = `النتيجة: ${quizScore} من ${QUIZ_QUESTIONS.length} ✨`;
+          quizScoreNote.textContent = 'جاوبتي بأحلى إجابات يا نونتي! ومهما كانت النتيجة، إنتِ دايماً كسبانة قلبي 100% من غير أي اختبار 🎀💗';
+          launchConfetti(155);
+          playSoftChime([523.25, 659.25, 783.99, 1046.5]);
+        }
+      });
+
+      quizReplayBtn.addEventListener('click', () => {
+        currentQuizIdx = 0;
+        quizScore = 0;
+        quizResultCard.classList.add('hidden');
+        quizContainer.classList.remove('hidden');
+        renderQuizQuestion();
+      });
+
+      /* ===========================================================
+         13. التشغيل عند تحميل الصفحة
+         =========================================================== */
+      window.addEventListener('resize', resizeConfettiCanvas);
+
+      window.onload = function () {
+        resizeConfettiCanvas();
+        initFloatingBackground();
+        renderLoveCards();
+        renderQuizQuestion();
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      };
+    })();
+  </script>
+</body>
+</html>
